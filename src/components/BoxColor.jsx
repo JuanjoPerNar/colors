@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 
 const BoxColor = ({ color, value, active }) => {
   const textStyle = active ? { color: 'black' } : { color: color }
@@ -18,5 +18,39 @@ const BoxColor = ({ color, value, active }) => {
     </div>
   )
 }
+
+export default BoxColor;
+ */
+
+import React, { useEffect, useRef, useState } from 'react';
+
+const BoxColor = ({ color, inputValue }) => {
+  const boxRef = useRef(null);
+  const [isMatch, setIsMatch] = useState(false);
+
+  useEffect(() => {
+    setIsMatch(inputValue === color);
+  }, [inputValue, color]);
+
+  const renderText = () => {
+    if (!inputValue) return ''; // Si el input está vacío, no mostramos nada
+    return isMatch
+      ? `¡Soy el color ${color}!`
+      : `No soy el color ${inputValue}`;
+  };
+
+  return (
+    <div
+      ref={boxRef}
+      className={`box ${isMatch ? color : ''}`}
+      style={{
+        border: `3px solid ${color}`,
+        color: isMatch ? 'black' : color,
+      }}
+    >
+      <p>{renderText()}</p>
+    </div>
+  );
+};
 
 export default BoxColor;

@@ -1,42 +1,33 @@
-import React, { useState } from "react";
-import BoxColor from "./BoxColor";
+import React, { useRef, useState } from 'react';
+import BoxColor from './BoxColor';
 
 const colors = ['red', 'green', 'pink', 'yellow', 'purple', 'white', 'blue', 'aqua', 'olive'];
 
-function MyForm() {
-  const [value, setValue] = useState('');
+const MyFormChallenge = () => {
+  const inputRef = useRef(null);
+  const [inputValue, setInputValue] = useState('');
 
-  const activeIndex = value.trim() !== '' 
-    ? colors.findIndex(color => value.trim().toLowerCase() === color.toLowerCase())
-    : -1;
-
-  const handleInputChange = (e) => {
-    setValue(e.target.value);
+  const handleChange = () => {
+    const value = inputRef.current.value.toLowerCase().trim();
+    setInputValue(value);
   };
 
   return (
     <div>
-      <form>
-        <input 
-          type="text" 
-          value={value}
-          placeholder="Escribe un color"
-          onChange={handleInputChange}
-        />
-      </form>
-
+      <h1>Cajas de Color</h1>
+      <input
+        type="text"
+        ref={inputRef}
+        placeholder="Escribe un color"
+        onChange={handleChange}
+      />
       <div className="container">
-        {colors.map((color, index) => (
-          <BoxColor 
-            key={color}
-            color={color}
-            value={value}
-            active={activeIndex === index}
-          />
+        {colors.map((color) => (
+          <BoxColor key={color} color={color} inputValue={inputValue} />
         ))}
       </div>
     </div>
   );
-}
+};
 
-export default MyForm;
+export default MyFormChallenge;

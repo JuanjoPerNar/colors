@@ -5,8 +5,7 @@
   text-align: center;
 }
 
-/* CSS de regalo */
-
+/* Contenedor de cajas */
 .container {
   width: 660px;
   display: flex;
@@ -19,16 +18,18 @@
   border: 1px solid white;
 }
 
-/* Estilos para cada una de las box */
+/* Caja individual */
 .box {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 200px;
   height: 200px;
+  flex-direction: column;
+  transition: all 0.3s ease;
 }
 
-/* Estilos para el input */
+/* Input */
 input {
   width: 50%;
   padding: 10px;
@@ -41,12 +42,22 @@ input {
   margin-bottom: 20px;
 }
 
+/* Texto */
 p {
   font-weight: bold;
   font-size: 20px;
 }
 
-
+/* Colores de fondo por clase */
+.red    { background-color: red; }
+.green  { background-color: green; }
+.pink   { background-color: pink; }
+.yellow { background-color: yellow; }
+.purple { background-color: purple; }
+.white  { background-color: white; }
+.blue   { background-color: blue; }
+.aqua   { background-color: aqua; }
+.olive  { background-color: olive; }
 
 
 
