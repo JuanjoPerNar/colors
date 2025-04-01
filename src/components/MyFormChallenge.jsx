@@ -3,7 +3,7 @@ import BoxColor from './BoxColor';
 
 const colors = ['red', 'green', 'pink', 'yellow', 'purple', 'white', 'blue', 'aqua', 'olive'];
 
-const MyFormChallenge = () => {
+const MyForm = () => {
   const inputRef = useRef(null);
   const [inputValue, setInputValue] = useState('');
 
@@ -30,4 +30,4 @@ const MyFormChallenge = () => {
   );
 };
 
-export default MyFormChallenge;
+export default MyForm;
